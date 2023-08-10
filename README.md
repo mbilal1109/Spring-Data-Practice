@@ -1,2 +1,2 @@
-# VehicleRental
+# Vehicle Rental
 Vehicle Rental Project
