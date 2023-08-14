@@ -19,6 +19,7 @@ public class VehicleServiceImpl implements VehicleService {
     @Override
     public void createVehicle(Vehicle vehicle) {
         vehicles.add(vehicle);
+        logger.info("Vehicles {}", vehicles);
     }
 
     @Override
@@ -29,7 +30,22 @@ public class VehicleServiceImpl implements VehicleService {
     @Override
     public Vehicle getVehicle(int vehicleId) {
         Vehicle vehicleFound = vehicles.stream().filter(v -> v.getVehicleId() == vehicleId).findAny().get();
-        logger.info("Vehicle Found: {}", vehicleFound);
         return vehicleFound;
+    }
+
+    @Override
+    public Vehicle updateVehicle(int vehicleId, Vehicle vehicle) {
+        Vehicle updatedVehicle = null;
+        // Surround with Try-Catch later down the road
+        for(Vehicle v : vehicles) {
+            if(v.getVehicleId() == vehicleId) {
+                // update the object
+                v.setModel(vehicle.getModel());
+                v.setMake(vehicle.getMake());
+                v.setYear(vehicle.getYear());
+                updatedVehicle = v;
+            }
+        }
+        return updatedVehicle;
     }
 }
