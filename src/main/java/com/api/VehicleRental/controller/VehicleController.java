@@ -4,15 +4,12 @@ import com.api.VehicleRental.model.Vehicle;
 import com.api.VehicleRental.service.VehicleService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/vehicle")
+@RequestMapping("/vehicles")
 public class VehicleController {
 
     private final Logger logger = LoggerFactory.getLogger(VehicleController.class);
@@ -29,13 +26,22 @@ public class VehicleController {
         return "Vehicle Created Successfully";
     }
 
+    @GetMapping
     public List<Vehicle> getAllVehiclesHandler() {
         return vehicleService.getAllVehicles();
     }
 
-    public Vehicle getVehicleHandler(int vehicleId) {
+    @GetMapping("{vehicleId}")
+    public Vehicle getVehicleHandler(@PathVariable int vehicleId) {
         Vehicle vehicle = vehicleService.getVehicle(vehicleId);
         logger.info("Vehicle Found Successfully: {}", vehicle);
         return vehicle;
+    }
+
+    @PutMapping("{vehicleId}")
+    public Vehicle updateVehicleHandler(@PathVariable int vehicleId, @RequestBody Vehicle vehicle) {
+        Vehicle updatedVehicle = vehicleService.updateVehicle(vehicleId, vehicle);
+        logger.info("Vehicle Updated Successfully {}", updatedVehicle);
+        return updatedVehicle;
     }
 }
