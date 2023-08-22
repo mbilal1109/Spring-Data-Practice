@@ -13,4 +13,6 @@ public interface VehicleService {
     public Vehicle getVehicle(int vehicleId);
 
     public Vehicle updateVehicle(int vehicleId, Vehicle vehicle);
+    
+    public boolean deleteVehicle(int vehicleId);
 }

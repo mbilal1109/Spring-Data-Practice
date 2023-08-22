@@ -48,4 +48,15 @@ public class VehicleServiceImpl implements VehicleService {
         }
         return updatedVehicle;
     }
+
+	@Override
+	public boolean deleteVehicle(int vehicleId) {
+		for(Vehicle v : vehicles) {
+			if(v.getVehicleId() == vehicleId) {
+				vehicles.remove(v);
+				return true;
+			}
+		}
+		return false;
+	}
 }

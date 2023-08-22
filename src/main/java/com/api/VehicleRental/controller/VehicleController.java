@@ -44,4 +44,13 @@ public class VehicleController {
         logger.info("Vehicle Updated Successfully {}", updatedVehicle);
         return updatedVehicle;
     }
+    
+    @DeleteMapping("{vehicleId}")
+    public String deleteVehicleHandler(@PathVariable int vehicleId) {
+    	if(vehicleService.deleteVehicle(vehicleId)) {
+    		logger.info("Vehicle Deleted Successfully");
+    		return "Vehicle Deleted Successfully";
+    	}
+    	return "Vehicle Not Found";
+    }
 }
