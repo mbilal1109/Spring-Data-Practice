@@ -12,6 +12,7 @@ import java.util.List;
 @Service
 public class VehicleServiceImpl implements VehicleService {
 
+	// Using List as temp DB, need to change later.
     List<Vehicle> vehicles = new ArrayList<>();
 
     private final Logger logger = LoggerFactory.getLogger(VehicleServiceImpl.class);
