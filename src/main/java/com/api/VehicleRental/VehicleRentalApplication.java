@@ -51,6 +51,6 @@ public class VehicleRentalApplication implements CommandLineRunner {
 		List<Vehicle> vehicles = vehicleDao.getAllVehicles();
 		logger.info("All Vehicles: {}", vehicles);
 		
-		Vehicle vehicle = vehicleDao.getSingleVehicle(1);
+//		Vehicle vehicle = vehicleDao.getSingleVehicle(1);
 	}
 }

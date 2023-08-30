@@ -27,7 +27,8 @@ public class VehicleController {
     public String createVehicleHandler(@RequestBody Vehicle vehicle) {
     	int id = random.nextInt(99999);
     	vehicle.setVehicleId(id);
-        vehicleService.createVehicle(vehicle);
+        Vehicle vehicleCreated = vehicleService.createVehicle(vehicle);
+        logger.info("Vehicle: {}", vehicleCreated);
         return "Vehicle Created Successfully";
     }
 

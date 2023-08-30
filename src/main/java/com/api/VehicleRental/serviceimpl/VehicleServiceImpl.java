@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class VehicleServiceImpl implements VehicleService {
 
 	// Using List as temp DB, need to change later.
@@ -19,7 +20,6 @@ public class VehicleServiceImpl implements VehicleService {
     @Override
     public Vehicle createVehicle(Vehicle vehicle) {
         vehicles.add(vehicle);
-        logger.info("Vehicles: {}", vehicles);
         return vehicle;
     }
 
