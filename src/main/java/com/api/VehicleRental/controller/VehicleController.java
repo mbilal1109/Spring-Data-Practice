@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Random;
 
 @RestController
 @RequestMapping("/vehicles")
@@ -19,9 +20,13 @@ public class VehicleController {
     public VehicleController(VehicleService vehicleService) {
         this.vehicleService = vehicleService;
     }
+    
+    Random random = new Random();
 
     @PostMapping
     public String createVehicleHandler(@RequestBody Vehicle vehicle) {
+    	int id = random.nextInt(99999);
+    	vehicle.setVehicleId(id);
         vehicleService.createVehicle(vehicle);
         return "Vehicle Created Successfully";
     }
