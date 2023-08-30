@@ -36,26 +36,24 @@ public class VehicleController {
         return vehicleService.getAllVehicles();
     }
 
-    @GetMapping("{vehicleId}")
+    @GetMapping("/{vehicleId}")
     public Vehicle getVehicleHandler(@PathVariable int vehicleId) {
         Vehicle vehicle = vehicleService.getVehicle(vehicleId);
         logger.info("Vehicle Found Successfully: {}", vehicle);
         return vehicle;
     }
 
-    @PutMapping("{vehicleId}")
+    @PutMapping("/{vehicleId}")
     public Vehicle updateVehicleHandler(@PathVariable int vehicleId, @RequestBody Vehicle vehicle) {
         Vehicle updatedVehicle = vehicleService.updateVehicle(vehicleId, vehicle);
         logger.info("Vehicle Updated Successfully {}", updatedVehicle);
         return updatedVehicle;
     }
     
-    @DeleteMapping("{vehicleId}")
+    @DeleteMapping("/{vehicleId}")
     public String deleteVehicleHandler(@PathVariable int vehicleId) {
-    	if(vehicleService.deleteVehicle(vehicleId)) {
-    		logger.info("Vehicle Deleted Successfully");
-    		return "Vehicle Deleted Successfully";
-    	}
-    	return "Vehicle Not Found";
+        vehicleService.deleteVehicle(vehicleId);
+        logger.info("Vehicle Deleted Successfully");
+        return "Vehicle Deleted Successfully";
     }
 }
