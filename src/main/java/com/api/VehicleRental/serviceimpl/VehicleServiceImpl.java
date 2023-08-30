@@ -18,9 +18,9 @@ public class VehicleServiceImpl implements VehicleService {
     private final Logger logger = LoggerFactory.getLogger(VehicleServiceImpl.class);
 
     @Override
-    public void createVehicle(Vehicle vehicle) {
+    public Vehicle createVehicle(Vehicle vehicle) {
         vehicles.add(vehicle);
-        logger.info("Vehicles {}", vehicles);
+        return vehicle;
     }
 
     @Override
@@ -30,8 +30,7 @@ public class VehicleServiceImpl implements VehicleService {
 
     @Override
     public Vehicle getVehicle(int vehicleId) {
-        Vehicle vehicleFound = vehicles.stream().filter(v -> v.getVehicleId() == vehicleId).findAny().get();
-        return vehicleFound;
+        return vehicles.stream().filter(v -> v.getVehicleId() == vehicleId).findAny().get();
     }
 
     @Override
@@ -51,13 +50,7 @@ public class VehicleServiceImpl implements VehicleService {
     }
 
 	@Override
-	public boolean deleteVehicle(int vehicleId) {
-		for(Vehicle v : vehicles) {
-			if(v.getVehicleId() == vehicleId) {
-				vehicles.remove(v);
-				return true;
-			}
-		}
-		return false;
+	public void deleteVehicle(int vehicleId) {
+		vehicles.removeIf(v -> v.getVehicleId() == vehicleId);
 	}
 }

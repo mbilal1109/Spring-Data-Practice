@@ -5,8 +5,7 @@ import com.api.VehicleRental.model.Vehicle;
 import java.util.List;
 
 public interface VehicleService {
-
-    public void createVehicle(Vehicle vehicle);
+    public Vehicle createVehicle(Vehicle vehicle);
 
     public List<Vehicle> getAllVehicles();
 
@@ -14,5 +13,5 @@ public interface VehicleService {
 
     public Vehicle updateVehicle(int vehicleId, Vehicle vehicle);
     
-    public boolean deleteVehicle(int vehicleId);
+    public void deleteVehicle(int vehicleId);
 }
