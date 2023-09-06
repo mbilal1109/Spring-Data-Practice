@@ -17,6 +17,8 @@ public class VehicleController {
 
     private VehicleService vehicleService;
 
+    Random random = new Random();
+
     public VehicleController(VehicleService vehicleService) {
         this.vehicleService = vehicleService;
     }
@@ -25,8 +27,8 @@ public class VehicleController {
 
     @PostMapping
     public String createVehicleHandler(@RequestBody Vehicle vehicle) {
-    	int id = random.nextInt(99999);
-    	vehicle.setVehicleId(id);
+    	  int id = random.nextInt(99999);
+    	  vehicle.setVehicleId(id);
         Vehicle vehicleCreated = vehicleService.createVehicle(vehicle);
         logger.info("Vehicle: {}", vehicleCreated);
         return "Vehicle Created Successfully";
