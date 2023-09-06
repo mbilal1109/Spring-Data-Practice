@@ -1,4 +1,4 @@
-package com.api.VehicleRental.dao;
+package com.api.vehiclerental.dao;
 
 import java.util.List;
 
@@ -6,11 +6,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Component;
 
-import com.api.VehicleRental.model.Vehicle;
+import com.api.vehiclerental.model.Vehicle;
+import org.springframework.stereotype.Repository;
 
-@Component
+@Repository
 public class VehicleDao {
 	
 	Logger logger = LoggerFactory.getLogger(VehicleDao.class);
@@ -21,7 +21,7 @@ public class VehicleDao {
 		this.template = template;
 
 		// Creating table if it doesn't exist in database
-		String createTable = "create table IF NOT EXISTS vehicles(vehicleId int primary key, model varchar(100) not null, " +
+		String createTable = "create table IF NOT EXISTS vehicle(vehicleId int primary key, model varchar(100) not null, " +
 				"make varchar(100) not null, year varchar(4) not null)";
 		int update = template.update(createTable);
 		logger.info("Vehicle Table Created {}", update);

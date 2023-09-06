@@ -1,7 +1,7 @@
-package com.api.VehicleRental.controller;
+package com.api.vehiclerental.controller;
 
-import com.api.VehicleRental.model.Vehicle;
-import com.api.VehicleRental.service.VehicleService;
+import com.api.vehiclerental.model.Vehicle;
+import com.api.vehiclerental.service.VehicleService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
