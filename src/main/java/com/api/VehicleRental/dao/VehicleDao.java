@@ -21,7 +21,8 @@ public class VehicleDao {
 		this.template = template;
 
 		// Creating table if it doesn't exist in database
-		String createTable = "create table IF NOT EXISTS vehicles(vehicleId int primary key, model varchar(100) not null, make varchar(100) not null, year varchar(4) not null)";
+		String createTable = "create table IF NOT EXISTS vehicles(vehicleId int primary key, model varchar(100) not null, " +
+				"make varchar(100) not null, year varchar(4) not null)";
 		int update = template.update(createTable);
 		logger.info("Vehicle Table Created {}", update);
 	}
