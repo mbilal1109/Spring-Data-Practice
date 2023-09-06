@@ -3,18 +3,22 @@ package com.api.VehicleRental.serviceimpl;
 import com.api.VehicleRental.dao.VehicleDao;
 import com.api.VehicleRental.model.Vehicle;
 import com.api.VehicleRental.service.VehicleService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@Primary
 public class DaoVehicleServiceImpl implements VehicleService {
 
-    private VehicleDao vehicleDao;
+    private final Logger logger = LoggerFactory.getLogger(DaoVehicleServiceImpl.class);
 
-    public DaoVehicleServiceImpl(VehicleDao vehicleDao) {
-        this.vehicleDao = vehicleDao;
-    }
+    @Autowired
+    private VehicleDao vehicleDao;
 
     @Override
     public Vehicle createVehicle(Vehicle vehicle) {
@@ -33,7 +37,9 @@ public class DaoVehicleServiceImpl implements VehicleService {
 
     @Override
     public Vehicle updateVehicle(int vehicleId, Vehicle vehicle) {
-        return vehicleDao.updateTodo(vehicleId, vehicle);
+        Vehicle newVehicle = vehicleDao.updateTodo(vehicleId, vehicle);
+        logger.info("Vehicle Updated: {}", newVehicle);
+        return newVehicle;
     }
 
     @Override

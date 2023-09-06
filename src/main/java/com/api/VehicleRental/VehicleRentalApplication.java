@@ -33,23 +33,23 @@ public class VehicleRentalApplication implements CommandLineRunner {
 //		logger.info("Template Object: {}" , template.getDataSource().getConnection());
 		
 //		Vehicle vehicle = new Vehicle();
-//		vehicle.setVehicleId(4);
+//		vehicle.setVehicleId(8);
 //		vehicle.setModel("Toyota");
-//		vehicle.setMake("Supra");
+//		vehicle.setMake("Corolla");
 //		vehicle.setYear("2024");
-//		
+//
 //		vehicleDao.saveVehicle(vehicle);
 		
 //		vehicle.setModel("Toyota");
-//		vehicle.setMake("Tundra");
+//		vehicle.setMake("Yaris");
 //		vehicle.setYear("2024");
-//		Vehicle newVehicle = vehicleDao.updateTodo(1, vehicle);
+//		Vehicle newVehicle = vehicleDao.updateTodo(5, vehicle);
 //		logger.info("Updated Vehicle: {}", newVehicle);
 		
-//		vehicleDao.deleteVehicle(2);
-		
-		List<Vehicle> vehicles = vehicleDao.getAllVehicles();
-		logger.info("All Vehicles: {}", vehicles);
+//		vehicleDao.deleteVehicle(8);
+//
+//		List<Vehicle> vehicles = vehicleDao.getAllVehicles();
+//		logger.info("All Vehicles: {}", vehicles);
 		
 //		Vehicle vehicle = vehicleDao.getSingleVehicle(1);
 	}
