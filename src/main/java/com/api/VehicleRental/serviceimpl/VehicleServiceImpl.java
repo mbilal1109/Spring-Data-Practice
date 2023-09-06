@@ -51,6 +51,6 @@ public class VehicleServiceImpl implements VehicleService {
 
 	@Override
 	public void deleteVehicle(int vehicleId) {
-		vehicles.removeIf(v -> v.getVehicleId() == vehicleId);
+        vehicles.removeIf(v -> v.getVehicleId() == vehicleId);
 	}
 }
