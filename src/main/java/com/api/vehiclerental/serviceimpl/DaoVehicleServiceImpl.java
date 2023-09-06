@@ -1,24 +1,26 @@
-package com.api.VehicleRental.serviceimpl;
+package com.api.vehiclerental.serviceimpl;
 
-import com.api.VehicleRental.dao.VehicleDao;
-import com.api.VehicleRental.model.Vehicle;
-import com.api.VehicleRental.service.VehicleService;
+import com.api.vehiclerental.dao.VehicleDao;
+import com.api.vehiclerental.model.Vehicle;
+import com.api.vehiclerental.service.VehicleService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-@Primary
 public class DaoVehicleServiceImpl implements VehicleService {
 
     private final Logger logger = LoggerFactory.getLogger(DaoVehicleServiceImpl.class);
 
     @Autowired
     private VehicleDao vehicleDao;
+
+    public DaoVehicleServiceImpl(VehicleDao vehicleDao) {
+        this.vehicleDao = vehicleDao;
+    }
 
     @Override
     public Vehicle createVehicle(Vehicle vehicle) {

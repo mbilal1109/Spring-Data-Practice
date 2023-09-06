@@ -1,4 +1,4 @@
-package com.api.VehicleRental.model;
+package com.api.vehiclerental.model;
 
 public class Customer {
 

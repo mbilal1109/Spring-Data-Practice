@@ -1,11 +1,11 @@
-package com.api.VehicleRental.dao;
+package com.api.vehiclerental.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
-import com.api.VehicleRental.model.Vehicle;
+import com.api.vehiclerental.model.Vehicle;
 
 /*
  * For each row and maps the row of relations with 

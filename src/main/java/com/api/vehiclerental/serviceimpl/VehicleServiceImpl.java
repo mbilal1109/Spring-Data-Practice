@@ -1,7 +1,7 @@
-package com.api.VehicleRental.serviceimpl;
+package com.api.vehiclerental.serviceimpl;
 
-import com.api.VehicleRental.model.Vehicle;
-import com.api.VehicleRental.service.VehicleService;
+import com.api.vehiclerental.model.Vehicle;
+import com.api.vehiclerental.service.VehicleService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;

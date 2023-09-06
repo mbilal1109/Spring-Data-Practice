@@ -1,6 +1,6 @@
-package com.api.VehicleRental.service;
+package com.api.vehiclerental.service;
 
-import com.api.VehicleRental.model.Vehicle;
+import com.api.vehiclerental.model.Vehicle;
 
 import java.util.List;
 
