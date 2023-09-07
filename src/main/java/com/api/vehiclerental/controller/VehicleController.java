@@ -4,6 +4,7 @@ import com.api.vehiclerental.model.Vehicle;
 import com.api.vehiclerental.service.VehicleService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,18 +16,11 @@ public class VehicleController {
 
     private final Logger logger = LoggerFactory.getLogger(VehicleController.class);
 
+    @Autowired
     private VehicleService vehicleService;
-
-    public VehicleController(VehicleService vehicleService) {
-        this.vehicleService = vehicleService;
-    }
-    
-    Random random = new Random();
 
     @PostMapping
     public String createVehicleHandler(@RequestBody Vehicle vehicle) {
-    	int id = random.nextInt(99999);
-    	vehicle.setVehicleId(id);
         Vehicle vehicleCreated = vehicleService.createVehicle(vehicle);
         logger.info("Vehicle: {}", vehicleCreated);
         return "Vehicle Created Successfully";
