@@ -1,2 +1,2 @@
-# Vehicle Rental
-Vehicle Rental Project
+# Spring Data
+Practicing Spring Data
